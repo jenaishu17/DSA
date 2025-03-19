@@ -1,7 +1,7 @@
 package day2_3;
 
-public class Linked_ex {
-    Node head;
+public class Linked_MiddleVal {
+	Node head;
     class Node {
         int data;
         Node next;
@@ -11,9 +11,10 @@ public class Linked_ex {
             next = null;
         }
     }
-    public Linked_ex() {
-        head = null;
-    }  
+    public Linked_MiddleVal() {
+    	head=null;
+    	
+    }
     public void insertAtBegin(int val) {
         Node newNode = new Node(val);
         if (head == null) {
@@ -24,6 +25,23 @@ public class Linked_ex {
             head = newNode;
         }
         }
+    public int findMiddle() {
+        
+        if (head == null) {
+            return -1; 
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        
+        while (fast != null && fast.next != null) {
+            slow = slow.next; 
+            fast = fast.next.next; 
+        }
+        return slow.data;
+    }
+    
     public void display() {
         Node temp = head;
         if (temp == null) {
@@ -36,27 +54,17 @@ public class Linked_ex {
         }
         System.out.println();
     } 
-    public void insertAtAnyPos(int pos, int val) {
-        Node newNode = new Node(val);  
-        Node temp = head;       
-        for (int i = 1; i < pos - 1; i++) {
-            
-            temp = temp.next;
-        }        
-        newNode.next = temp.next;
-        temp.next = newNode;
-    }
+    
+    
+public static void main(String args[]) {
+	Linked_MiddleVal m=new Linked_MiddleVal();
+	m.insertAtBegin(50);
+	m.insertAtBegin(40);
+	m.insertAtBegin(30);
+	m.insertAtBegin(20);
+	m.insertAtBegin(10);
+	m.display();
+	System.out.println(m.findMiddle());
+}
 
-    public void deleteAtBegin() {
-    	head=head.next;
-    }
-    public void deleteAtAnyPos(int dpos) {
-    	Node temp=head;
-    	Node dtemp=null;
-    	for(int i=0;i<dpos-1;i++) {
-    		dtemp=temp;
-    		temp=temp.next;
-    		 }
-    	dtemp.next=temp.next;
-    }
 }

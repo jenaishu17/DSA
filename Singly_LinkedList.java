@@ -1,4 +1,4 @@
-package day2;
+package day2_3;
 
 public class Singly_LinkedList {
 
@@ -10,9 +10,14 @@ public class Singly_LinkedList {
 		l.insertAtBegin(30);
 		l.insertAtBegin(20);
 		l.insertAtBegin(10);
+		l.insertAtAnyPos(4, 45);
+		l.insertAtAnyPos(5, 33);
 		l.insertAtBegin(777);
-		l.display();
 		l.insertAtAnyPos(4, 333);
+		l.display();
+		l.deleteAtBegin();
+		l.deleteAtAnyPos(2);
+		
 		l.display();
 	}
 	
